@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Skripte -->
+    <script src="script.js" defer></script>
+    <script
+      type="module"
+      src="https://cdn.cubing.net/v0/js/cubing/twisty"
+    ></script>
+
+    <title>2 × 2 Zauberwürfel lösen - Detaillierte Algorithmen</title>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>2 × 2 Zauberwürfel Lösungsalgorithmen</h1>
+      <p>
+        Präzise Algorithmen zur systematischen Lösung des 2 × 2 Zauberwürfels.
+      </p>
+    </header>
+
+    <main class="main-content">
+      <!-- PDF-Download -->
+      <div class="download-container">
+        <a
+          href="2x2-algorithmen.pdf"
+          download="2x2-Algorithmen.pdf"
+          class="download-link"
+        >
+          Vollständige Algorithmensammlung herunterladen
+        </a>
+      </div>
+
+      <!-- Abschnitt 1 -->
+      <h2 class="toggle-header" onclick="toggleText('algo1')">
+        1. Weiße Ecke korrekt einsetzen
+      </h2>
+
+      <div id="algo1" class="hidden-text">
+        <!-- 3D-Modell -->
+        <div style="display: flex; justify-content: center">
+          <twisty-player
+            alg="R' D' R D"
+            puzzle="2x2x2"
+            control-panel="true"
+            background="true"
+            hint-facelets="none"
+            anchored-to="end"
+          ></twisty-player>
+        </div>
+
+        <!-- Erklärung -->
+        <h3>Wann wird dieser Algorithmus verwendet?</h3>
+        <p>
+          Dieser Algorithmus wird verwendet, wenn du eine weiße Ecke mit Weiß
+          oben hast und sie in die untere Ebene einsetzen willst.
+          <br />
+          Ziel: Die Ecke durch Wiederholen von <strong>R' D' R D</strong> in die
+          richtige Position bringen, mit Weiß auf der Unterseite.
+        </p>
+
+        <!-- Text-Algorithmus -->
+        <h3>Algorithmus:</h3>
+        <p><strong>R' D' R D</strong></p>
+
+        <!-- Visuelle Erklärung einer Bewegung -->
+        <div style="text-align: center; margin: 1rem 0">
+          <img src="1.png" alt="Bewegung" />
+          <p><strong>Die weiße Ecke rotiert nach unten</strong></p>
+        </div>
+
+        <!-- Bildabfolge -->
+        <h3>Bewegung der Ecke – Bildabfolge:</h3>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+          "
+        >
+          <div style="text-align: center">
+            <img src="1.png" alt="Startposition" />
+            <p><strong>Start</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="R'" />
+            <p><strong>R'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="D'" />
+            <p><strong>D'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="R" />
+            <p><strong>R</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="D" />
+            <p><strong>D</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="D" />
+            <p><strong>E</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="D" />
+            <p><strong>E</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="Ergebnis" />
+            <p><strong>Weiße Ecke unten</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abschnitt 2 -->
+      <h2 class="toggle-header" onclick="toggleText('text2')">
+        2. Erste Ebene komplettieren
+      </h2>
+      <div id="text2" class="hidden-text">
+        <p>
+          Schlüsselalgorithmen für die restlichen Ecken:
+          <br />
+          - R U R' U'<br />
+          - U R U' R'<br />
+          - F R U R' U' F'
+        </p>
+      </div>
+
+      <!-- Abschnitt 3 -->
+      <h2 class="toggle-header" onclick="toggleText('text3')">
+        3. Obere Ebene orientieren
+      </h2>
+      <div id="text3" class="hidden-text">
+        <p>
+          Orientierungsalgorithmen der oberen Ebene:
+          <br />
+          - R U R' U R U2 R'<br />
+          - U R U' R' U' R U R'
+        </p>
+      </div>
+
+      <!-- Abschnitt 4 -->
+      <h2 class="toggle-header" onclick="toggleText('text4')">
+        4. Letzte Ecken permutieren
+      </h2>
+      <div id="text4" class="hidden-text">
+        <p>
+          Komplexe Permutationsalgorithmen:
+          <br />
+          - R U' R' U' R U R' F' R U R' U' R' F R2 U' R'<br />
+          - R2 U R U R' U' R' U' R' U R'
+        </p>
+      </div>
+
+      <!-- Abschnitt 5 -->
+      <h2 class="toggle-header" onclick="toggleText('text5')">
+        5. Fortgeschrittene Optimierungstechniken
+      </h2>
+      <div id="text5" class="hidden-text">
+        <p>
+          Fortgeschrittene Optimierungstechniken:
+          <br />
+          - Vorausschauende Positionierung<br />
+          - Minimierung der Rotationen<br />
+          - Schnelle Analyse der Würfelstruktur
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Zauberwürfel Algorithmen</p>
+    </footer>
+  </body>
+</html>

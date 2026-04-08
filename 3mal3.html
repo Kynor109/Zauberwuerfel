@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Skripte -->
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+    <script
+      type="module"
+      src="https://cdn.cubing.net/v0/js/cubing/twisty"
+    ></script>
+
+    <title>3 × 3 Zauberwürfel lösen</title>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>3 × 3 Zauberwürfel Lösungen</h1>
+      <p>
+        Umfassende Anleitung zur Lösung des klassischen 3 × 3-Zauberwürfels.
+      </p>
+    </header>
+
+    <main class="main-content">
+      <!-- PDF-Download -->
+      <div class="download-container">
+        <a
+          href="3x3-guide.pdf"
+          download="3x3-Loesungen.pdf"
+          class="download-link"
+        >
+          Vollständige Anleitung herunterladen
+        </a>
+      </div>
+
+      <!-- Abschnitt 1: Weißes Kreuz -->
+      <h2 class="toggle-header" onclick="toggleText('text1')">
+        1. Weißes Kreuz erstellen
+      </h2>
+      <div id="text1" class="hidden-text">
+        <h2>Beginne mit dem weißen Kreuz</h2>
+        <p>
+          Positioniere die Kantensteine so, dass sie mit den Mittelsteinen der
+          Seitenfarben übereinstimmen. Nutze folgende Algorithmen:
+        </p>
+
+        <!-- Canvas -->
+        <div id="canvas-container">
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <!-- 3D Player -->
+        <div style="display: flex; justify-content: center">
+          <twisty-player
+            alg="R U R' U R U2' R'"
+            puzzle="3x3x3"
+            control-panel="true"
+            background="true"
+            hint-facelets="none"
+            anchored-to="end"
+          ></twisty-player>
+        </div>
+
+        <!-- Farbwahlbereich -->
+        <h2 class="edit" onclick="edit('edit')">
+          <span class="edit-icon">🖊</span> Edit
+        </h2>
+        <div id="edit" class="hidden-text">
+          <h4>Wähle eine Farbe:</h4>
+          <div class="controls">
+            <div class="color-button red" data-color="red"></div>
+            <div class="color-button blue" data-color="blue"></div>
+            <div class="color-button green" data-color="green"></div>
+            <div class="color-button yellow" data-color="yellow"></div>
+            <div class="color-button white" data-color="white"></div>
+            <div class="color-button orange" data-color="orange"></div>
+          </div>
+        </div>
+
+        <!-- Beispielbilder & Algorithmus -->
+        <h1>Algorithmus: 1 = U, t;</h1>
+        <img src="2.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+
+        <h1>Algorithmus: 1</h1>
+        <img src="Fall-1.png" alt="Zauberwürfel" />
+        <img src="2.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+        <img src="1.png" alt="Zauberwürfel" />
+      </div>
+
+      <!-- Abschnitt 2: Zweite Ebene -->
+      <h2 class="toggle-header" onclick="toggleText('algo2')">
+        2. Zweite Ebene lösen (Kanten ohne Gelb einsetzen)
+      </h2>
+
+      <div id="algo2" class="hidden-text">
+        <!-- 3D-Modell -->
+        <div style="display: flex; justify-content: center">
+          <twisty-player
+            alg="U R U' R' U' F' U F"
+            puzzle="3x3x3"
+            control-panel="true"
+            background="true"
+            hint-facelets="true"
+            anchored-to="end"
+          ></twisty-player>
+        </div>
+
+        <!-- Erklärung -->
+        <br /><br />
+        <h3>Wann wird dieser Algorithmus verwendet?</h3>
+        <p>
+          Dieser Algorithmus wird verwendet, um eine Kante ohne Gelb von der
+          oberen Ebene in die zweite Ebene einzusetzen. Ziel ist es, die
+          mittlere Ebene vollständig zu füllen.
+        </p>
+        <br /><br />
+        <h3>Vorgehen:</h3>
+        <p>
+          1. Suche oben eine Kante ohne Gelb.<br />
+          2. Richte die Vorderseite (Front) so aus, dass die Farbe der Kante mit
+          dem Mittelstein übereinstimmt.<br />
+          3. Wenn die Zielposition rechts ist, nutze den rechten Algorithmus:<br />
+          <strong>U R U' R' U' F' U F</strong><br /><br />
+          4. Wenn die Zielposition links ist, nutze den linken Algorithmus:<br />
+          <strong>U' L' U L U F U' F'</strong>
+        </p>
+        <br /><br />
+        <h3>Algorithmus (nach rechts):</h3>
+        <p><strong>U R U' R' U' F' U F</strong></p>
+
+        <!-- Bildabfolge -->
+        <h3>Bewegung der Kante – Bildabfolge:</h3>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+          "
+        >
+          <div style="text-align: center">
+            <img src="1.png" alt="Startposition" />
+            <p><strong>Start</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="U" />
+            <p><strong>U</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="R" />
+            <p><strong>R</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="U'" />
+            <p><strong>U'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="R'" />
+            <p><strong>R'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="U'" />
+            <p><strong>U'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="F'" />
+            <p><strong>F'</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="U" />
+            <p><strong>U</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="F" />
+            <p><strong>F</strong></p>
+          </div>
+          <div style="text-align: center">
+            <img src="1.png" alt="Ergebnis" />
+            <p><strong>Kante richtig eingesetzt</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Abschnitt 3: Mittlere Ebene -->
+      <h2 class="toggle-header" onclick="toggleText('text3')">
+        3. Mittlere Ebene lösen
+      </h2>
+      <div id="text3" class="hidden-text">
+        <p>Kantensteine korrekt platzieren. Nutze: U R U' R' U' F' U F.</p>
+      </div>
+
+      <!-- Abschnitt 4: Gelbes Kreuz -->
+      <h2 class="toggle-header" onclick="toggleText('text4')">
+        4. Gelbes Kreuz bilden
+      </h2>
+      <div id="text4" class="hidden-text">
+        <p>Algorithmus: F R U R' U' F' zum Erstellen des gelben Kreuzes.</p>
+      </div>
+
+      <!-- Abschnitt 5: Letzte Ebene -->
+      <h2 class="toggle-header" onclick="toggleText('text5')">
+        5. Letzte Ebene permutieren
+      </h2>
+      <div id="text5" class="hidden-text">
+        <p>
+          Gelbe Ecken/Kanten anpassen. Ecken: R U R' U R U2 R' Kanten: U R U' L'
+          U R' U' L
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Zauberwürfel Tutorials</p>
+    </footer>
+  </body>
+</html>
